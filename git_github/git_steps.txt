@@ -1,0 +1,2 @@
+1) To add files: git add .
+2)To commit into the git repository: git commit -m "Message_OR_Notes"
