@@ -1,0 +1,41 @@
+---
+author: "Sanjay Thapa"
+date: "11/12/2017"
+title: Introduction to R reports
+output: html_document
+---
+
+# Data Analysis Report
+
+Today **I** analyzed the _data_
+
+* Step 1
+* Step 2
+
+1. Step 1
+2. step 2
+3. I analyzed the data
+
+```{r load_pkgs, echo=FALSE}
+library(ggplot2)
+```
+
+``` {r load_data, echo=FALSE}
+gapminder <- read.table("~/Desktop/SWC_fall2017/Data/gapminder.txt", header = TRUE)
+```
+
+```{r plot_data}
+ggplot(data = gapminder, aes(x = year, y = lifeExp, color = country)) +
+  geom_point() + 
+  theme(legend.position = "none") + 
+  labs(x = "Year", y = "Life Expectancy", title = "Figure 1")
+```
+
+# Header 1
+Plot the life expectancy of Nepal from the data
+
+## Header 2
+### Header 3
+
+Body text
+

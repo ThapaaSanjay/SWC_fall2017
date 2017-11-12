@@ -1,0 +1,151 @@
+sqrt(64)
+print("Hello R")
+print(64)
+install.packages("knitr")
+library(knitr)
+?print
+?library
+help(mean)
+#variable description
+name <- "Jane"
+name
+#Alt + dash for <- symbol
+price <- 3.99
+price
+print(price)
+mass <- 47.5
+mass
+ls()
+rm(name)
+ls()
+rm(list = ls())
+myValue <- sqrt(64)
+myValue
+age <- 25
+length(age)
+str(age)
+typeof(age)
+score <- 79
+score
+is.integer(score)
+typeof(is.integer(score))
+
+#how to create a multi-element variable
+v <- c(1:10)
+v
+length(v)
+str(v)
+head(v)
+head(v,n =2)
+tail(v, n=3)
+#manipulate
+v <- c(v, 56)
+v
+
+#vectrization
+v1 <-  v*2
+v1
+
+#change a data type
+v3 <-  as.character(v1)
+v2
+v3
+
+#matrices
+m <- matrix(c(1:18), 3,6)
+m
+dim(m)
+
+#factor
+f <- factor(c("M", "F", "F"))
+f
+str(f)
+
+
+#list
+l <- list("Nepal", 1992)
+l
+str(l)
+lenth(l)
+length(l)
+
+foodOrdered <- c("chicken","soup","salad","tea")
+foodCondition <- factor(c("solid","liquid","solid","liquid"))
+price <- c(4.99, 2.99,3.29, 1.89)
+myOrder <- list(foodOrdered, foodCondition,price)
+myOrder
+length(myOrder)
+str(myOrder)
+
+#### COMMANDS FOR SUBSETTING AND WRITING SIMPLE R SCRIPTS #########
+menuItems<-c("chicken", "soup", "salad", "tea")
+menuType<-factor(c("solid", "liquid", "solid", "liquid"))
+menuCost<-c(4.99, 2.99, 3.29, 1.89)
+myOrder<-list(menuItems, menuType, menuCost)
+myOrder
+length(myOrder)
+str(myOrder)
+myOrder
+length(menuItems)
+myOrder_df <- data.frame(menuItems,menuType,menuCost)
+myOrder_df
+
+
+### Subsetting
+#### By Position Index
+v <- c(10:20)
+v
+v[7]
+v[7:10]
+v[-c(7:10)] ##Except the value from 7 to 10
+myOrder[1]
+myOrder_df
+myOrder_df[3,3]
+myOrder_df[,3]  #Displays all data of column 3
+myOrder_df[3,]
+
+#### By Name
+myOrder_df$menuType
+
+#### By Logical Vectors
+
+## < lesser than
+## > grater than
+### == equalto 
+## <= lesser than or equal to
+## >= grater than or equal to 
+
+v <- c(2,3,4,5,5,6)
+v1 <-  v[v==5]
+v1
+
+v1 <-  v[v < 4]
+v1
+df1 <- myOrder_df[myOrder_df$menuType =="liquid",]
+df1
+df1 <- myOrder_df[myOrder_df$menuCost < 3,]
+df1
+myData <- read.table("/Users/sanjay/Desktop/SWC_fall2017/Data/gapminder.txt", header = TRUE)
+myData
+head(myData)
+#myData <- read.csv("/Users/sanjay/Desktop/SWC_fall2017/Data/gapminder.txt") #Use for the excel files separated by ,
+myData <- read.table("/Users/sanjay/Desktop/SWC_fall2017/Data/gapminder.txt")
+head(myData)
+myData <- read.table("/Users/sanjay/Desktop/SWC_fall2017/Data/gapminder.txt", header = TRUE)
+myData
+#1. What is the overall object structure? What function will you use?
+str(myData)
+#2. Can you tell the data type of the elements in each column?
+typeof(myData)
+#3. Can you extract the 3rd and 5th column of the dataset?
+myData[, c(3,5)]
+#4. Can you extract the list of countries in this dataset? ### Hint: use unique(). ###
+unique(myData$country)
+unique(myData[,1])
+#5. Can you get a part of this dataset that inclues information about Sweden?
+myData[myData$country=="Sweden",]
+#6. Can you extract all countries for which life expectancy is below 70?
+myData[myData$lifeExp < 70,]
+
+#7. Can you make a new column that contains population size in units of millions of people?
+myData$PopM <- myData$pop/10^6
